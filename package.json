@@ -1,0 +1,9 @@
+{
+  "name": "gemini-app-nueva",
+  "version": "1.0.0",
+  "description": "Una aplicación web simple para chatear con Gemini.",
+  "main": "index.js",
+  "dependencies": {
+    "@google/generative-ai": "^0.7.1"
+  }
+}

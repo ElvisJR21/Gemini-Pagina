@@ -1,0 +1,244 @@
+/* style.css - Versión Final Profesional con Modo Oscuro */
+
+/* --- Configuración General --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /* Transición suave para el modo oscuro */
+}
+
+/* --- Estructura Principal a Pantalla Completa --- */
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* --- Barra Lateral Anclada --- */
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: #f0f4f9;
+    color: #333;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.new-chat-btn {
+    padding: 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.new-chat-btn:hover {
+    background-color: #f6f8fa;
+    border-color: #c0c7ce;
+}
+
+/* --- Historial de Chats --- */
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.history-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.history-list li:hover {
+    background-color: #e8eef3;
+}
+
+.history-list li.active-chat {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.chat-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.delete-chat-btn {
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.history-list li:hover .delete-chat-btn {
+    opacity: 1;
+}
+
+.delete-chat-btn:hover {
+    background-color: #d0d7de;
+}
+
+/* --- Contenedor del Chat Principal --- */
+.chat-container {
+    flex-grow: 1;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #24292e;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Burbujas de Mensaje --- */
+.message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 80%;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.gemini {
+    background-color: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    position: relative;
+    padding-right: 45px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Input y Botón --- */
+.input-container {
+    display: flex;
+    padding: 20px 30px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+textarea {
+    flex-grow: 1;
+    padding: 14px 20px;
+    border: 1px solid #d0d7de;
+    border-radius: 24px;
+    resize: none;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-right: 15px;
+    height: 24px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+/* --- Contenido Adicional --- */
+.message pre { background-color: #1e1e1e; color: #dcdcdc; padding: 15px; border-radius: 8px; overflow-x: auto;}
+.message code { font-family: 'Courier New', Courier, monospace; }
+.message ul, .message ol { padding-left: 25px; }
+.message li { margin-bottom: 8px; }
+.message.gemini div { white-space: pre-wrap; }
+.copy-btn { position: absolute; top: 10px; right: 10px; background: #e0e0e0; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; padding: 4px 8px; opacity: 0; transition: opacity 0.2s ease, background-color 0.2s ease; }
+.message.gemini:hover .copy-btn { opacity: 1; }
+.copy-btn:hover { background: #d0d7de; }
+.loading { text-align: center; color: #888; padding: 10px; font-style: italic; }
+.error { background-color: #ffebee; color: #d32f2f; align-self: center; text-align: center; border-radius: 8px; padding: 10px 15px; }
+
+/* --- Interruptor de Modo Oscuro --- */
+.sidebar-footer { margin-top: auto; padding-top: 15px; border-top: 1px solid #e0e0e0; transition: border-color 0.3s ease; }
+.theme-switch-label { display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 0.9em; }
+.theme-switch-wrapper { position: relative; width: 44px; height: 24px; }
+.theme-switch-wrapper input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; }
+input:checked + .slider { background-color: #007bff; }
+input:checked + .slider:before { transform: translateX(20px); }
+.slider.round { border-radius: 34px; }
+.slider.round:before { border-radius: 50%; }
+
+/* --- ESTILOS DEL MODO OSCURO --- */
+body.dark-mode { background-color: #121212; }
+body.dark-mode .sidebar { background-color: #202123; color: #e0e0e0; border-right: 1px solid #333; }
+body.dark-mode .new-chat-btn { background-color: #202123; color: #e0e0e0; border-color: #555; }
+body.dark-mode .new-chat-btn:hover { background-color: #2b2d31; }
+body.dark-mode .sidebar-footer { border-top-color: #333; }
+body.dark-mode .history-list li:hover { background-color: #343541; }
+body.dark-mode .delete-chat-btn:hover { background-color: #555; }
+body.dark-mode .chat-container, body.dark-mode h1 { background-color: #1c1c1c; }
+body.dark-mode h1 { color: #e0e0e0; border-bottom: 1px solid #333; }
+body.dark-mode .gemini { background-color: #333537; color: #e0e0e0; }
+body.dark-mode .input-container { background-color: #1c1c1c; border-top: 1px solid #333; }
+body.dark-mode textarea { background-color: #2a2a2a; color: #e0e0e0; border-color: #555; }
+body.dark-mode textarea:focus { box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); }
+body.dark-mode .copy-btn { background: #555; color: #e0e0e0; }
+body.dark-mode .copy-btn:hover { background: #666; }

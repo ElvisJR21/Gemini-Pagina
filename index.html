@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat con Gemini</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Incluimos la librería para renderizar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Barra Lateral del Historial -->
+        <div id="history-sidebar" class="sidebar">
+            <button id="new-chat-btn" class="new-chat-btn">+ Nuevo Chat</button>
+            <ul id="history-list" class="history-list">
+                <!-- El historial se generará aquí con JavaScript -->
+            </ul>
+
+            <!-- Interruptor de Modo Oscuro -->
+            <div class="sidebar-footer">
+                <label for="theme-switch" class="theme-switch-label">
+                    <span>Modo Oscuro</span>
+                    <div class="theme-switch-wrapper">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Contenedor del Chat Principal -->
+        <div class="chat-container">
+            <h1>Chat con Gemini</h1>
+            <div id="chat-box">
+                <!-- Los mensajes aparecerán aquí -->
+            </div>
+            <div id="loading" class="loading" style="display: none;">Gemini está pensando...</div>
+            <div class="input-container">
+                <textarea id="prompt-input" placeholder="Escribe tu mensaje..."></textarea>
+                <button id="send-button">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
